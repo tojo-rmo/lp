@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>とうじょうRMO ｜ SHGs - Sustainable Happy Goals</title>
 <meta name="description" content="兵庫県加東市東条地域。緑を守り、老若男女が互いに支え合う、持続可能な幸せな農村へ。とうじょうRMOのビジョンと取り組み。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +36,9 @@ body{
   line-height:1.9;
   font-weight:400;
   overflow-x:hidden;
+  width:100%;
+  word-break:normal;
+  overflow-wrap:anywhere;
 }
 ::selection{background:var(--sage);color:var(--forest-deep);}
 img{max-width:100%;display:block;}
@@ -389,29 +392,129 @@ footer{background:#0d2417;color:rgba(255,255,255,.6);padding:70px 0 40px;}
 .foot-bot .tag-shg{font-family:"Inter";letter-spacing:.3em;font-size:.68rem;color:var(--sage);}
 
 /* ============ RESPONSIVE ============ */
+/* --- global overflow / image guards --- */
+html,body{max-width:100%;}
+.hero-blob{pointer-events:none;}
+
+/* ===== TABLET ( ~1024px ) ===== */
+@media(max-width:1024px){
+  .wrap{padding:0 34px;}
+  .nav-links{gap:26px;}
+  .vision-grid{gap:56px;}
+  .sol-grid{grid-template-columns:1fr;}
+  .sol-card{max-width:640px;}
+  .link-grid{grid-template-columns:1fr 1fr;}
+}
+
+/* ===== LANDSCAPE PHONE / SMALL TABLET ( ~900px ) ===== */
 @media(max-width:900px){
   .wrap{padding:0 26px;}
-  .nav-links{position:fixed;inset:0 0 0 auto;width:78%;max-width:340px;flex-direction:column;
-    background:var(--cream-warm);padding:110px 40px;gap:28px;align-items:flex-start;
-    transform:translateX(100%);transition:transform .5s var(--ease);box-shadow:var(--shadow);}
+  .nav-links{position:fixed;inset:0 0 0 auto;width:80%;max-width:340px;flex-direction:column;
+    background:var(--cream-warm);padding:104px 34px;gap:6px;align-items:stretch;
+    transform:translateX(100%);transition:transform .5s var(--ease);box-shadow:var(--shadow);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;}
   .nav-links.open{transform:none;}
-  .burger{display:flex;z-index:110;}
-  .section-pad{padding:90px 0;}
-  .vision-grid{grid-template-columns:1fr;gap:50px;}
+  .nav-links a{padding:15px 4px;font-size:1rem;border-bottom:1px solid var(--line);}
+  .nav-links a::after{display:none;}
+  .nav-cta{margin-top:18px;text-align:center;padding:15px 24px;border-bottom:1px solid var(--green)!important;}
+  .burger{display:flex;z-index:110;padding:8px;margin:-8px;}
+  .section-pad{padding:84px 0;}
+  .sec-head{margin-bottom:56px;}
+  .vision-grid{grid-template-columns:1fr;gap:44px;}
   .chal-grid{grid-template-columns:1fr;}
   .sol-grid{grid-template-columns:1fr;}
-  .kgi-band{grid-template-columns:1fr;gap:28px;}
+  .sol-card{max-width:none;}
+  .kgi-band{grid-template-columns:1fr;gap:26px;padding:36px 30px;}
   .kgi-band .kgi{border-right:none;border-bottom:1px solid rgba(255,255,255,.14);padding:0 0 24px;}
-  .road-grid{grid-template-columns:1fr;gap:44px;}
+  .road-grid{grid-template-columns:1fr;gap:40px;}
   .road-line{display:none;}
   .struct-core{grid-template-columns:1fr;}
   .core-right{grid-template-columns:1fr;}
   .link-grid{grid-template-columns:1fr;}
   .hero-badge{display:none;}
+  .foot-top{flex-direction:column;gap:36px;}
 }
-@media(max-width:520px){
-  .sec-head .row{flex-direction:column;gap:10px;}
+
+/* ===== PHONE ( ~600px ) ===== */
+@media(max-width:600px){
+  .wrap{padding:0 20px;}
+  header{padding:18px 0;}
+  header.scrolled{padding:12px 0;}
+  .logo{font-size:1.02rem;}
+  .logo .mark{width:22px;height:22px;}
+  .logo small{font-size:.55rem;letter-spacing:.24em;}
+
+  /* hero */
+  .hero{min-height:auto;padding:130px 0 80px;}
+  .hero h1{font-size:clamp(2rem,8.4vw,2.7rem);line-height:1.5;margin-bottom:28px;}
+  .hero p{font-size:.95rem;line-height:1.95;margin-bottom:36px;}
+  .hero .eyebrow{margin-bottom:26px;font-size:.66rem;letter-spacing:.32em;}
+  .hero-actions{gap:16px;}
+  .btn-primary{width:100%;justify-content:center;padding:16px 28px;}
+  .btn-ghost{width:100%;text-align:center;}
+  .scroll-hint{display:none;}
+  .blob-1{width:360px;height:360px;top:-80px;right:-120px;}
+  .blob-2{width:300px;height:300px;bottom:-120px;left:-120px;}
+
+  /* headings */
+  .section-pad{padding:70px 0;}
+  .sec-head{margin-bottom:46px;}
+  .sec-head .row{flex-direction:column;gap:6px;}
+  .section-index{font-size:3.4rem;}
+  .sec-head h2{font-size:clamp(1.6rem,7vw,2rem);}
+  .sec-head .lead{font-size:.94rem;}
+  .eyebrow{font-size:.64rem;letter-spacing:.3em;}
+  .eyebrow::before{width:24px;}
+
+  /* vision */
+  .vision-quote{font-size:1.55rem;line-height:1.65;}
+  .vision-body p{font-size:.93rem;}
+  .region-card{padding:36px 28px;}
+  .region-card h3{font-size:1.45rem;}
+  .region-stats{grid-template-columns:1fr 1fr;gap:22px 16px;}
+  .region-stats .num{font-size:1.85rem;}
+
+  /* challenges */
+  .chal-card{padding:34px 26px;border-radius:22px;}
+  .chal-card h3{font-size:1.12rem;}
+  .chal-list li{font-size:.87rem;}
+
+  /* solutions */
+  .sol-card{padding:34px 26px;}
+  .sol-card h3{font-size:1.2rem;}
+  .kgi-band{padding:30px 24px;border-radius:22px;}
+  .kgi-band .kgi .val{font-size:1.4rem;}
+  .kpi-cloud span{font-size:.72rem;padding:6px 12px;}
+
+  /* roadmap */
+  .road-card{padding:30px 24px;}
+  .road-dot{width:66px;height:66px;font-size:.98rem;}
+  .road-card h3{font-size:1.12rem;}
+
+  /* structure */
+  .core-left{padding:36px 28px;}
+  .core-left .t{font-size:1.2rem;}
+  .core-right{padding:28px;gap:22px;}
+  .struct-ext{padding:30px 24px;}
+
+  /* connect */
+  .connect-head{margin-bottom:48px;}
+  .connect-head h2{font-size:clamp(1.7rem,7.5vw,2.3rem);}
+  .link-card{padding:32px 26px;}
+
+  /* footer */
+  .foot-nav{gap:44px;}
+  .foot-bot{flex-direction:column;align-items:flex-start;gap:12px;}
+}
+
+/* ===== SMALL PHONE ( ~380px ) ===== */
+@media(max-width:380px){
+  .wrap{padding:0 16px;}
+  .hero h1{font-size:1.85rem;}
+  .section-index{font-size:2.8rem;}
   .region-stats{grid-template-columns:1fr;}
+  .core-right{grid-template-columns:1fr;}
+  .logo small{display:none;}
 }
 </style>
 </head>
