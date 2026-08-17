@@ -13,6 +13,7 @@ const HEADER_HTML = `
   <div class="wrap nav">
     <a href="index.html" class="logo">とうじょうRMO<small>兵庫県加東市 東条地域</small></a>
     <nav class="nav-links" id="navlinks">
+      <a href="index.html" data-nav="index.html">TOP</a>
       <a href="about.html" data-nav="about.html">RMOとは</a>
       <a href="solutions.html" data-nav="solutions.html">3つの活動</a>
       <a href="challenges.html" data-nav="challenges.html">地域の課題</a>
