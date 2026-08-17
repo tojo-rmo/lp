@@ -36,7 +36,7 @@ const FOOTER_HTML = `
       <div class="foot-nav">
         <div class="foot-col">
           <h5>Contents</h5>
-          <a href="index.html">TOP</a>
+          <a href="index.html">HOME</a>
           <a href="about.html">RMOとは</a>
           <a href="solutions.html">3つの目的</a>
           <a href="challenges.html">地域の課題</a>
