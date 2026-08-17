@@ -44,8 +44,8 @@ const FOOTER_HTML = `
         </div>
         <div class="foot-col">
           <h5>Links</h5>
+          <a href="https://sites.google.com/view/okamotoeinou/" target="_blank" rel="noopener">㈱岡本営農互助会</a>
           <a href="https://www.welovetojo.com/" target="_blank" rel="noopener">We Love シン東条</a>
-          <a href="https://sites.google.com/view/okamotoeinou/" target="_blank" rel="noopener">岡本営農互助会</a>
           <a href="https://www.instagram.com/kato.agri.japan/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
