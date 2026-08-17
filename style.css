@@ -27,7 +27,6 @@ body{
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
-
 /* ---------- 見出し部品 ---------- */
 .eyebrow{
   font-family:"Inter",sans-serif;font-weight:600;letter-spacing:.3em;
@@ -38,7 +37,6 @@ a{color:inherit;text-decoration:none;}
   color:var(--ink);line-height:1.5;margin-top:12px;letter-spacing:.02em;
 }
 .sec-lead{margin-top:16px;color:var(--ink-soft);font-weight:400;font-size:.98rem;max-width:660px;}
-
 /* ---------- ヘッダー ---------- */
 header{
   position:fixed;top:0;left:0;right:0;z-index:100;
@@ -63,12 +61,15 @@ header.scrolled{padding:12px 0;border-bottom:1px solid var(--line);box-shadow:0 
 .nav-links .btn-nav{background:var(--green);color:#fff;padding:9px 20px;border-radius:6px;}
 .nav-links .btn-nav::after{display:none;}
 .nav-links .btn-nav:hover{background:var(--green-deep);color:#fff;}
+/* いま開いているページのメニューを強調 */
+.nav-links a.current{color:var(--green);}
+.nav-links a.current::after{width:100%;}
+.nav-links .btn-nav.current{color:#fff;}
 .burger{display:none;flex-direction:column;gap:6px;background:none;border:none;cursor:pointer;padding:8px;z-index:110;}
 .burger span{width:24px;height:2px;background:var(--ink);transition:.3s;}
 .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
 .burger.open span:nth-child(2){opacity:0;}
 .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
-
 /* ---------- ヒーロー（自動スライド） ---------- */
 .hero{position:relative;height:88vh;min-height:540px;overflow:hidden;background:var(--gray);}
 .slides{position:absolute;inset:0;}
@@ -92,11 +93,9 @@ header.scrolled{padding:12px 0;border-bottom:1px solid var(--line);box-shadow:0 
   background:rgba(47,122,67,.28);cursor:pointer;transition:background .3s,transform .3s;}
 .hero-dots button:hover{background:rgba(47,122,67,.55);}
 .hero-dots button.active{background:var(--green);transform:scale(1.15);}
-
 /* ---------- セクション ---------- */
 .section{padding:100px 0;}
 .section.gray{background:var(--gray);}
-
 /* ---------- とうじょうRMOとは（要約ブロック） ---------- */
 .intro{max-width:820px;margin:0 auto;text-align:center;}
 .intro .sec-title{margin-bottom:22px;}
@@ -104,7 +103,6 @@ header.scrolled{padding:12px 0;border-bottom:1px solid var(--line);box-shadow:0 
 .intro .keywords{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:30px;}
 .intro .keywords span{background:var(--white);border:1px solid var(--line);border-radius:30px;
   padding:8px 20px;font-size:.86rem;color:var(--green-deep);font-weight:500;}
-
 /* ---------- 3つの活動カード ---------- */
 .acts-head{text-align:center;margin-bottom:50px;}
 .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -118,7 +116,6 @@ header.scrolled{padding:12px 0;border-bottom:1px solid var(--line);box-shadow:0 
 .act ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
 .act ul li{position:relative;padding-left:18px;font-size:.9rem;font-weight:400;color:var(--ink-soft);line-height:1.7;}
 .act ul li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--green);}
-
 /* ---------- ニュース ---------- */
 .news-list{border-top:1px solid var(--line);max-width:900px;}
 .news-item{display:flex;gap:24px;align-items:baseline;flex-wrap:wrap;
@@ -129,26 +126,36 @@ header.scrolled{padding:12px 0;border-bottom:1px solid var(--line);box-shadow:0 
   background:var(--gray);border-radius:20px;padding:3px 12px;white-space:nowrap;}
 .news-item .title{flex:1;min-width:200px;font-size:.92rem;color:var(--ink);}
 .news-item a.title:hover{color:var(--green);}
-
 /* ---------- コンテンツ ナビ ---------- */
 .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.menu-card{background:var(--white);border:1px solid var(--line);border-radius:12px;
-  padding:30px 26px;display:block;transition:border .3s,transform .3s var(--ease);}
-.menu-card:hover{border-color:var(--green);transform:translateY(-4px);}
-.menu-card .no{font-family:"Inter";font-size:.74rem;letter-spacing:.14em;color:var(--gold);font-weight:600;}
-.menu-card h3{font-weight:700;font-size:1.08rem;color:var(--ink);margin:10px 0 8px;}
-.menu-card p{font-size:.84rem;color:var(--ink-soft);}
-.menu-card .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;
-  font-family:"Inter";font-size:.76rem;color:var(--green);transition:gap .3s;}
+/* 画像の上に文字を重ね、ヒーロー同様のグラデーション網掛けで文字をはっきりさせる */
+.menu-card{position:relative;display:block;border-radius:12px;overflow:hidden;
+  aspect-ratio:3/4;background:var(--gray);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 24px 46px -30px rgba(0,0,0,.5);}
+/* 背景いっぱいのヒーロー画像（リンク先ページと同じ画像） */
+.menu-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .5s var(--ease);}
+.menu-card:hover img{transform:scale(1.06);}
+/* 網掛け（下を濃く／上を透明にした暗いグラデーション） */
+.menu-card::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,26,18,.05) 0%,rgba(20,26,18,.35) 48%,rgba(20,26,18,.82) 100%);
+  transition:background .3s;}
+.menu-card:hover::after{background:linear-gradient(180deg,rgba(20,26,18,.1) 0%,rgba(20,26,18,.45) 48%,rgba(20,26,18,.88) 100%);}
+/* 画像の上に重ねる文字 */
+.menu-card .menu-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 22px 24px;}
+.menu-card .no{font-family:"Inter";font-size:.74rem;letter-spacing:.14em;color:#e7c877;font-weight:600;}
+.menu-card h3{font-weight:700;font-size:1.12rem;color:#fff;margin:0 0 6px;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+.menu-card p{font-size:.82rem;color:rgba(255,255,255,.9);text-shadow:0 1px 6px rgba(0,0,0,.5);line-height:1.7;}
+.menu-card .go{margin-top:14px;display:inline-flex;align-items:center;gap:6px;
+  font-family:"Inter";font-size:.78rem;color:#fff;transition:gap .3s;}
 .menu-card:hover .go{gap:12px;}
-
 /* ---------- CTA バンド ---------- */
 .cta{background:var(--green);color:#fff;text-align:center;padding:70px 0;}
 .cta h2{font-weight:700;font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:14px;}
 .cta p{color:rgba(255,255,255,.85);font-weight:400;margin-bottom:28px;}
 .cta .btn{background:#fff;color:var(--green-deep);}
 .cta .btn:hover{background:#f0f0ec;}
-
 /* ---------- フッター ---------- */
 footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .foot-top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;
@@ -165,7 +172,6 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .foot-col a:hover{color:#fff;}
 .foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:12px;}
 .foot-bot p{font-size:.74rem;font-weight:400;color:rgba(255,255,255,.4);}
-
 /* ---------- 下層ページ ---------- */
 .page-hero{position:relative;height:38vh;min-height:280px;overflow:hidden;display:flex;align-items:flex-end;background:var(--gray);}
 .page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
@@ -190,7 +196,10 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .mini-card h3{margin:6px 0 10px;color:var(--ink);}
 .mini-card p{font-size:.86rem;margin:0;}
 .back-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:"Inter";font-size:.8rem;color:var(--green);}
-
+/* 各活動の一文説明（solutions.html） */
+.act-note{margin:16px 0 4px;padding:14px 18px;background:var(--gray);
+  border-left:3px solid var(--green);border-radius:0 8px 8px 0;
+  font-size:.9rem;color:var(--ink-soft);line-height:1.9;}
 /* ---------- お問合せフォーム ---------- */
 .form{max-width:620px;}
 .form label{display:block;margin-bottom:20px;font-size:.86rem;font-weight:600;color:var(--ink);}
@@ -206,11 +215,9 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
 .contact-info{margin-top:6px;display:flex;flex-direction:column;gap:12px;}
 .contact-info .row{display:flex;gap:16px;font-size:.9rem;font-weight:400;color:var(--ink-soft);}
 .contact-info .row b{min-width:80px;font-weight:700;color:var(--ink);}
-
 /* ---------- reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
 .reveal.in{opacity:1;transform:none;}
-
 /* ---------- レスポンシブ ---------- */
 @media(max-width:820px){
   /* スマホではヘッダーを不透明な白に（ぼかし・透過をなくす） */
@@ -239,6 +246,7 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
   .hero-dots{bottom:16px;}
   .acts{grid-template-columns:1fr;}
   .menu-grid{grid-template-columns:1fr 1fr;}
+  .menu-card{aspect-ratio:16/10;}
   .cards3{grid-template-columns:1fr;}
   .foot-top{flex-direction:column;}
 }
@@ -250,6 +258,7 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
   .hero-copy h1{font-size:clamp(1.5rem,6.2vw,2rem);}
   .hero-copy .badge{font-size:.68rem;padding:6px 14px;}
   .menu-grid{grid-template-columns:1fr;}
+  .menu-card{aspect-ratio:16/9;}
   .news-item{gap:10px 16px;}
   .news-item .date{min-width:78px;}
   .news-item .title{flex:1 1 100%;min-width:0;}

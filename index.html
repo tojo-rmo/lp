@@ -11,24 +11,8 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- ===== ヘッダー ===== -->
-<header id="hdr">
-  <div class="wrap nav">
-    <a href="index.html" class="logo">
-      とうじょうRMO<small>兵庫県加東市 東条地域</small>
-    </a>
-    <nav class="nav-links" id="navlinks">
-      <a href="about.html">RMOとは</a>
-      <a href="solutions.html">3つの活動</a>
-      <a href="challenges.html">地域の課題</a>
-      <a href="#news">お知らせ</a>
-      <a href="contact.html" class="btn-nav">お問合せ</a>
-    </nav>
-    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
+<!-- ===== ヘッダー（common.js が挿入） ===== -->
+<div id="site-header"></div>
 <!-- ===== ヒーロー（自動スライド／3秒で分かる） ===== -->
 <section class="hero">
   <div class="slides" id="slides">
@@ -47,7 +31,6 @@
     <button data-i="2" aria-label="スライド3"></button>
   </div>
 </section>
-
 <!-- ===== とうじょうRMOとは（要約） ===== -->
 <section class="section">
   <div class="wrap">
@@ -63,7 +46,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== 3つの活動（Word準拠） ===== -->
 <section class="section gray">
   <div class="wrap">
@@ -115,7 +97,6 @@
     </div>
   </div>
 </section>
-
 <!-- ===== お知らせ（JSONで管理） ===== -->
 <section class="section" id="news">
   <div class="wrap">
@@ -126,8 +107,7 @@
     <div class="news-list reveal" id="newsList"></div>
   </div>
 </section>
-
-<!-- ===== コンテンツ ナビ ===== -->
+<!-- ===== コンテンツ ナビ（各タイルにヒーロー画像／リンク先ページと同じ画像） ===== -->
 <section class="section gray">
   <div class="wrap">
     <div class="acts-head reveal" style="text-align:left;margin-bottom:36px;">
@@ -136,29 +116,40 @@
     </div>
     <div class="menu-grid reveal">
       <a href="about.html" class="menu-card">
-        <h3>RMOとは</h3>
-        <p>農村RMOと、とうじょうRMOの成り立ち。</p>
-        <span class="go">見る →</span>
+        <img src="images/hero1.jpg" alt="RMOとは">
+        <div class="menu-body">
+          <h3>RMOとは</h3>
+          <p>農村RMOと、とうじょうRMOの成り立ち。</p>
+          <span class="go">見る →</span>
+        </div>
       </a>
       <a href="solutions.html" class="menu-card">
-        <h3>3つの活動</h3>
-        <p>農用地保全・地域資源活用・生活支援。</p>
-        <span class="go">見る →</span>
+        <img src="images/hero3.jpg" alt="3つの活動">
+        <div class="menu-body">
+          <h3>3つの活動</h3>
+          <p>農用地保全・地域資源活用・生活支援。</p>
+          <span class="go">見る →</span>
+        </div>
       </a>
       <a href="challenges.html" class="menu-card">
-        <h3>地域の課題</h3>
-        <p>高齢化・人口減少と、農業を取り巻く現実。</p>
-        <span class="go">見る →</span>
+        <img src="images/hero2.jpg" alt="地域の課題">
+        <div class="menu-body">
+          <h3>地域の課題</h3>
+          <p>高齢化・人口減少と、農業を取り巻く現実。</p>
+          <span class="go">見る →</span>
+        </div>
       </a>
       <a href="contact.html" class="menu-card">
-        <h3>お問合せ</h3>
-        <p>ご質問・ご相談、活動へのご参加。</p>
-        <span class="go">見る →</span>
+        <img src="images/hero2.jpg" alt="お問合せ">
+        <div class="menu-body">
+          <h3>お問合せ</h3>
+          <p>ご質問・ご相談、活動へのご参加。</p>
+          <span class="go">見る →</span>
+        </div>
       </a>
     </div>
   </div>
 </section>
-
 <!-- ===== CTA ===== -->
 <section class="cta">
   <div class="wrap">
@@ -167,51 +158,13 @@
     <a href="contact.html" class="btn">お問合せはこちら →</a>
   </div>
 </section>
+<!-- ===== フッター（common.js が挿入） ===== -->
+<div id="site-footer"></div>
 
-<!-- ===== フッター ===== -->
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <div class="logo">とうじょうRMO<small>兵庫県加東市 東条地域</small></div>
-        <p>岡本・森・南山の3地区が協力し、農地を守り、地域資源を活かし、暮らしを支える農村型地域運営組織です。</p>
-      </div>
-      <div class="foot-nav">
-        <div class="foot-col">
-          <h5>Contents</h5>
-          <a href="index.html">TOP</a>
-          <a href="about.html">RMOとは</a>
-          <a href="solutions.html">3つの活動</a>
-          <a href="challenges.html">地域の課題</a>
-          <a href="contact.html">お問合せ</a>
-        </div>
-        <div class="foot-col">
-          <h5>Links</h5>
-          <a href="https://www.welovetojo.com/" target="_blank" rel="noopener">We Love シン東条</a>
-          <a href="https://sites.google.com/view/okamotoeinou/" target="_blank" rel="noopener">岡本営農互助会</a>
-          <a href="https://www.instagram.com/kato.agri.japan/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bot">
-      <p>© 2026 とうじょうRMO ｜ 兵庫県加東市東条地域</p>
-    </div>
-  </div>
-</footer>
-
+<!-- 共通のメニューバー・フッター・メニュー動作・reveal は common.js が担当 -->
+<script src="common.js"></script>
 <script>
-/* ヘッダー / メニュー */
-const hdr=document.getElementById('hdr');
-addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30));
-const burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
-function toggleMenu(open){
-  const o=open!==undefined?open:!nav.classList.contains('open');
-  nav.classList.toggle('open',o);
-  burger.classList.toggle('open',o);
-  document.body.style.overflow=o?'hidden':'';
-}
-burger.addEventListener('click',()=>toggleMenu());
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+/* ↓ このページ（トップ）だけの動き：ヒーロースライド と お知らせ読み込み */
 
 /* ヒーロー自動スライド */
 const slides=[...document.querySelectorAll('.slide')];
@@ -232,10 +185,6 @@ fetch('news.json').then(r=>r.json()).then(items=>{
     return `<div class="news-item"><span class="date">${date}</span><span class="cat">${n.category}</span>${title}</div>`;
   }).join('');
 }).catch(()=>{});
-
-/* reveal */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>

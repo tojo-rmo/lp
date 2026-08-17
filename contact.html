@@ -11,33 +11,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header id="hdr">
-  <div class="wrap nav">
-    <a href="index.html" class="logo">とうじょうRMO<small>兵庫県加東市 東条地域</small></a>
-    <nav class="nav-links" id="navlinks">
-      <a href="about.html">RMOとは</a>
-      <a href="solutions.html">3つの活動</a>
-      <a href="challenges.html">地域の課題</a>
-      <a href="index.html#news">お知らせ</a>
-      <a href="contact.html" class="btn-nav">お問合せ</a>
-    </nav>
-    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
-
+<div id="site-header"></div>
 <section class="page-hero">
   <img src="images/hero2.jpg" alt="東条地域の農村風景">
   <div class="wrap"><span class="eyebrow">Contact</span><h1>お問合せ</h1></div>
 </section>
 <div class="crumbs"><div class="wrap"><a href="index.html">HOME</a> ／ お問合せ</div></div>
-
 <article class="article">
   <div class="wrap" style="max-width:820px;">
     <div class="reveal">
       <p>とうじょうRMOへのご質問・ご相談、活動へのご参加のお申し込みは、以下のフォームまたは連絡先へお願いいたします。</p>
     </div>
-
     <div class="reveal">
       <h2>お問合せフォーム</h2>
       <form class="form" onsubmit="return submitForm(event)">
@@ -53,7 +37,6 @@
         <button type="submit" class="btn">送信する →</button>
       </form>
     </div>
-
     <div class="reveal">
       <h2>連絡先</h2>
       <div class="contact-info">
@@ -63,38 +46,10 @@
         <div class="row"><b>SNS</b><span><a href="https://www.instagram.com/kato.agri.japan/" target="_blank" rel="noopener" style="color:var(--green)">Instagram @kato.agri.japan</a></span></div>
       </div>
     </div>
-
     <a href="index.html" class="back-link">← トップへ戻る</a>
   </div>
 </article>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <div class="logo">とうじょうRMO<small>兵庫県加東市 東条地域</small></div>
-        <p>岡本・森・南山の3地区が協力し、農地を守り、地域資源を活かし、暮らしを支える農村型地域運営組織です。</p>
-      </div>
-      <div class="foot-nav">
-        <div class="foot-col">
-          <h5>Contents</h5>
-          <a href="about.html">RMOとは</a>
-          <a href="solutions.html">3つの活動</a>
-          <a href="challenges.html">地域の課題</a>
-          <a href="contact.html">お問合せ</a>
-        </div>
-        <div class="foot-col">
-          <h5>Links</h5>
-          <a href="https://www.welovetojo.com/" target="_blank" rel="noopener">We Love シン東条</a>
-          <a href="https://sites.google.com/view/okamotoeinou/" target="_blank" rel="noopener">岡本営農互助会</a>
-          <a href="https://www.instagram.com/kato.agri.japan/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="foot-bot"><p>© 2026 とうじょうRMO ｜ 兵庫県加東市東条地域</p></div>
-  </div>
-</footer>
-
+<div id="site-footer"></div>
 <script src="common.js"></script>
 <script>
 /* デモ用：送信処理は未接続です。実運用ではメール送信サービス等に接続してください。 */
