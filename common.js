@@ -15,7 +15,7 @@ const HEADER_HTML = `
     <nav class="nav-links" id="navlinks">
       <a href="index.html" data-nav="index.html">TOP</a>
       <a href="about.html" data-nav="about.html">RMOとは</a>
-      <a href="solutions.html" data-nav="solutions.html">3つの活動</a>
+      <a href="solutions.html" data-nav="solutions.html">3つの目的</a>
       <a href="challenges.html" data-nav="challenges.html">地域の課題</a>
       <a href="index.html#news">お知らせ</a>
       <a href="contact.html" class="btn-nav" data-nav="contact.html">お問合せ</a>
@@ -38,7 +38,7 @@ const FOOTER_HTML = `
           <h5>Contents</h5>
           <a href="index.html">TOP</a>
           <a href="about.html">RMOとは</a>
-          <a href="solutions.html">3つの活動</a>
+          <a href="solutions.html">3つの目的</a>
           <a href="challenges.html">地域の課題</a>
           <a href="contact.html">お問合せ</a>
         </div>
