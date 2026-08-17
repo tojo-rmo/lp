@@ -263,3 +263,16 @@ footer{background:#20261f;color:rgba(255,255,255,.6);padding:56px 0 30px;}
   .news-item .date{min-width:78px;}
   .news-item .title{flex:1 1 100%;min-width:0;}
 }
+/* ---------- 汎用タグ（丸囲みラベル）：全ページで使用可 ---------- */
+.tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+.tags span{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:8px 20px;
+  font-size:.86rem;
+  color:var(--green-deep);
+  font-weight:500;
+}
+/* 中央寄せしたいときだけ付けるオプション */
+.tags.center{justify-content:center;}
