@@ -9,11 +9,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* =========================================================
+   お問合せページ：Googleフォーム埋め込み用スタイル
+   ========================================================= */
+.gform-embed{
+  position:relative;
+  width:100%;
+  border:1px solid var(--line,#e4e6e2);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--white,#fff);
+  box-shadow:0 18px 42px -34px rgba(0,0,0,.45);
+}
+.gform-embed iframe{
+  display:block;
+  width:100%;
+  min-height:1100px;   /* フォームの項目数に応じて調整してください */
+  border:0;
+}
+/* フォームの下に添える注記 */
+.gform-note{
+  margin-top:14px;
+  font-size:.84rem;
+  color:var(--ink-soft,#5f6a63);
+}
+.gform-note a{color:var(--green,#2f7a43);}
+</style>
 </head>
 <body>
 <div id="site-header"></div>
 <section class="page-hero">
-  <img src="images/hero4.jpg" alt="東条地域の農村風景">
+  <img src="images/hero2.jpg" alt="東条地域の農村風景">
   <div class="wrap"><span class="eyebrow">Contact</span><h1>お問合せ</h1></div>
 </section>
 <div class="crumbs"><div class="wrap"><a href="index.html">HOME</a> ／ お問合せ</div></div>
@@ -24,25 +51,36 @@
     </div>
     <div class="reveal">
       <h2>お問合せフォーム</h2>
-      <form class="form" onsubmit="return submitForm(event)">
-        <label>お名前<span style="color:var(--gold)"> *</span>
-          <input type="text" name="name" required placeholder="山田 太郎">
-        </label>
-        <label>メールアドレス<span style="color:var(--gold)"> *</span>
-          <input type="email" name="email" required placeholder="example@mail.com">
-        </label>
-        <label>お問合せ内容<span style="color:var(--gold)"> *</span>
-          <textarea name="message" required placeholder="ご質問・ご相談内容をご記入ください。"></textarea>
-        </label>
-        <button type="submit" class="btn">送信する →</button>
-      </form>
+
+      <!-- ============================================================
+           ▼▼▼ Googleフォームの埋め込み ▼▼▼
+           使い方：
+             1. Googleフォームを開き、右上「送信」→「< >（埋め込み HTML）」を選択
+             2. 表示された <iframe ...> をコピー
+             3. 下の <iframe ...> を丸ごと差し替える（src の URL を置き換えるだけでも可）
+                ※ 末尾が「/viewform?embedded=true」になっている共有用URLです
+           ============================================================ -->
+      <div class="gform-embed">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe3mhJQr_Cekg2DSbexSbFl0TOWzvu6t_jJOeEc8Z-Sl9pMcA/viewform?usp=dialog"
+          title="とうじょうRMO お問合せフォーム"
+          loading="lazy">
+          読み込んでいます…
+        </iframe>
+      </div>
+
+      <p class="gform-note">
+        フォームが表示されない場合は、
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3mhJQr_Cekg2DSbexSbFl0TOWzvu6t_jJOeEc8Z-Sl9pMcA/viewform?usp=dialog" target="_blank" rel="noopener">こちら（別ウィンドウで開く）</a>
+        からご入力ください。
+      </p>
     </div>
     <div class="reveal">
       <h2>連絡先</h2>
       <div class="contact-info">
         <div class="row"><b>団体名</b><span>とうじょうRMO</span></div>
-        <div class="row"><b>所在地</b><span>兵庫県加東市 東条地域（岡本・森・南山）</span></div>
-        <div class="row"><b>Web</b><span><a href="https://www.welovetojo.com/" target="_blank" rel="noopener" style="color:var(--green)">We Love シン東条</a></span></div>
+        <div class="row"><b>所在地</b><span>〒673-1323 兵庫県加東市岡本247−4</span></div>
+        <div class="row"><b>E-mail</b><span>okamotokouminkan3687@outlook.jp</span></div>
         <div class="row"><b>SNS</b><span><a href="https://www.instagram.com/kato.agri.japan/" target="_blank" rel="noopener" style="color:var(--green)">Instagram @kato.agri.japan</a></span></div>
       </div>
     </div>
@@ -51,14 +89,5 @@
 </article>
 <div id="site-footer"></div>
 <script src="common.js"></script>
-<script>
-/* デモ用：送信処理は未接続です。実運用ではメール送信サービス等に接続してください。 */
-function submitForm(e){
-  e.preventDefault();
-  alert('お問合せありがとうございます。\n（このフォームはデモです。送信先の設定を行ってください。）');
-  e.target.reset();
-  return false;
-}
-</script>
 </body>
 </html>
