@@ -18,7 +18,7 @@ const HEADER_HTML = `
       <a href="solutions.html" data-nav="solutions.html">3つの目的</a>
       <a href="challenges.html" data-nav="challenges.html">地域の課題</a>
       <a href="index.html#news">お知らせ</a>
-      <a href="contact.html" class="btn-nav" data-nav="https://www.instagram.com/kato.agri.japan/">Instagramをフォロー</a>
+      <a href="https://www.instagram.com/kato.agri.japan/" class="btn-nav" data-nav="https://www.instagram.com/kato.agri.japan/">Instagramをフォロー</a>
     </nav>
     <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
   </div>
